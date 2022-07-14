@@ -51,7 +51,9 @@
     },
     async setup() {
       const { title } = useArticleTitle()
-      onMounted(() => title.value = 'ダッシュボード')
+      onMounted(() => {
+        title.value = 'ダッシュボード'
+      })
     },
   }
 </script>

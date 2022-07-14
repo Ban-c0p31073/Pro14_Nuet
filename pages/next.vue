@@ -7,8 +7,8 @@
 </template>
 
 <script setup lang="ts">
-   const { title } = useArticleTitle()
-   onMounted(() => title.value = 'なんかの画面')
+  const { title } = useArticleTitle()
+  onMounted(() => title.value = 'なんかの画面')
 
-   const { data: props } = await useFetch('/api/deal')
+  const { data: props } = await useFetch('/api/deal')
 </script>

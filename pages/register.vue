@@ -102,6 +102,4 @@
 <script setup lang="ts">
    const { title } = useArticleTitle()
    onMounted(() => title.value = '登録画面')
-
-   const { data: props } = await useFetch('/api/deal')
 </script>
