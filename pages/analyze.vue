@@ -53,7 +53,7 @@
       ],
       cruds: [
         ['Create', 'mdi-plus-outline'],
-        ['Read', 'mdi-file-outline'],
+        ['Read', 'mdi-file-outline'],  
         ['Update', 'mdi-update'],
         ['Delete', 'mdi-delete'],
       ],
