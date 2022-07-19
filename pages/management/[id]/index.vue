@@ -2,7 +2,7 @@
    <v-container>
       <div class="d-flex flex-column">
          <div class="ma-3 ">
-            <p class="text-h4">{{ $route.params.id }}</p>
+            <p class="text-h4">{{name}}</p>
             <v-list-item density="compact" class="mt-2">
                <v-list-item class="text-h6 pa-0">混雑状況：</v-list-item>
                <v-list-item class="pa-0">
@@ -25,13 +25,17 @@
             </v-col>
          </v-row>
       </div>
+      <v-btn variant="outlined" :to="'/management/'+id+'/data'">outlined</v-btn>
    </v-container>
 </template>
 
 <script setup lang="ts">
   const { title } = useArticleTitle()
-  onMounted(() => title.value = '駐輪場管理 / '+name)
   const { spots } = useSpots()
-  const index = spots.value.findIndex(({id}) => id === 13)
-  const name = spots.value[index].name
+  onMounted(() => title.value = '駐輪場管理 / '+name)
+
+  const route = useRoute()
+  const id = route.params.id
+  const index = spots.value.findIndex(({spots_id}) => spots_id == id)
+  const name = spots.value[index].spots_name
 </script>
