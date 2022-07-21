@@ -1,27 +1,29 @@
 <template>
   <v-app>
-    <v-app-bar color="primary">
+    <v-app-bar flat border>
       <v-app-bar-nav-icon @click="drawer=!drawer" />
       <v-app-bar-title class="pl-5">{{title}}</v-app-bar-title>
     </v-app-bar>
     <v-navigation-drawer app v-model="drawer">
       <v-container>
-
         <v-list nav dense>
-          <v-list-item v-for="(navList,i) in navLists" :key="i" :to="navList.to" active-color="primary">
+          <v-list-item v-for="(navList,i) in navLists" :key="i" :to="navList.to" active-color="secondary">
             <v-list-item-avatar>
               <v-icon :icon="navList.icon" />
             </v-list-item-avatar>
-            <v-list-item-title v-text="navList.name" />
+            <v-list-item-title v-text="navList.name"/>
           </v-list-item>
         </v-list>
         <v-divider/>
-        <v-list nav dense>
-          <v-list-item v-for="(n,i) in parkingLists" :key="i" :to="n.to" active-color="primary">
-            <v-list-item-title v-text="n.name" />
-          </v-list-item>
+        <v-list nav>
+          <v-list-group v-for="(n,i) in spots" :key="i">
+              <template v-slot:activator="{ props }" nav>
+                <v-list-item v-bind="props" :title="n.spots_name"></v-list-item>
+              </template>
+              <v-list-item title="管理画面"  :to="'/management/'+n.spots_id" active-color="secondary"/>
+              <v-list-item title="分析データ"  :to="'/management/'+n.spots_id+'/data'" active-color="secondary"/>
+          </v-list-group>
         </v-list>
-
       </v-container>
     </v-navigation-drawer>
     <v-main>
@@ -42,13 +44,6 @@ export default {
         {name: '1111',icon: 'mdi-palette', to: '/next'},
         {name: '2222',icon: 'mdi-palette', to: '/register'},
       ],
-      parkingLists:[
-        {name: '藤沢駐輪場', to: '/management/1'},
-        {name: '文教駐輪場', to: '/management/2'},
-        {name: '文教第二駐輪場', to: '/management/3'},
-        {name: '文教第三駐輪場', to: '/management/4'},
-        {name: '文教第四駐輪場', to: '/management/5'},
-      ],
     }
   }
 }
@@ -56,4 +51,8 @@ export default {
 
 <script setup lang="ts">
   const { title } = useArticleTitle()
+  const { spots } = useSpots()
+  const { data: props } = await useFetch('/api/deal')
+
+  spots.value = props
 </script>

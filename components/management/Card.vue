@@ -2,9 +2,12 @@
    <v-card class="my-2 card" >
       <v-row>
          <v-col>
-            <v-card-title class="text-h4 my-4">
+            <v-card-title class="text-h4 mt-4">
                {{name}}
             </v-card-title>
+            <v-card-subtitle>
+               {{address}}
+            </v-card-subtitle>
             <v-list-item density="compact" class="mt-2">
                <v-list-item class="text-h6 pa-0">混雑状況：</v-list-item>
                <v-list-item class="pa-0">
@@ -28,6 +31,7 @@
 
 interface Props {
    name: String,
+   address: String,
    situation: Boolean
 }
 

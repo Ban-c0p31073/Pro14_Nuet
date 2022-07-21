@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
    css: ["vuetify/lib/styles/main.sass"],
    build: {
-     transpile: ["vuetify"],
+     transpile: ["vuetify","chart.js"],
    },
    vite: {
      define: {

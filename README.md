@@ -1,57 +1,42 @@
-# 簡単な説明
+# Nuxt 3 Minimal Starter
 
-まず前提としてNuxt3の環境構築ができてる必要があります。
+Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-https://zenn.dev/szn/articles/nuxt-3-with-docker-compose
+## Setup
 
-https://zenn.dev/winteryukky/articles/87a40b60fddb96
+Make sure to install the dependencies:
 
-私はこんな感じでやりました。
+```bash
+# yarn
+yarn install
 
-<br>
+# npm
+npm install
 
-# 中身の説明
+# pnpm
+pnpm install --shamefully-hoist
+```
 
-Vueは、HTML・CSS・TSを１つのファイルにまとめて書きます。
+## Development Server
 
-<br>
+Start the development server on http://localhost:3000
 
-## app.vue
+```bash
+npm run dev
+```
 
-全体の枠組みが書いてある。ナビバーやヘッダーなど。
+## Production
 
-<br>
+Build the application for production:
 
-## pages
+```bash
+npm run build
+```
 
-メインで表示される部分のvueが入っている。
+Locally preview production build:
 
-index.vue は 適当な動作確認
+```bash
+npm run preview
+```
 
-next.vue は APIのGETの動作確認
-
-register.vue は FORMの動作確認
-
-<br>
-
-## composables
-
-状態管理に関するtypescriptが入っている。
-
-現状はヘッダーの文字を動的に変えるための変数しか入っていない。
-
-<br>
-
-## server/api
-
-外部と通信するためのtypescriptが入っている。
-
-deal.ts は 適当な天気予報をするAPIを試しに通信している。
-
-register.ts は 駐輪場登録用のAPIを入れるつもりだが、現状手が付いていない。
-
-<br>
-
-## その他
-
-あんまり気にしないで良い。
+Checkout the [deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for more information.
