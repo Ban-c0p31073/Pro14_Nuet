@@ -1,7 +1,7 @@
 <template>
    <v-container>
-      <div class="d-flex flex-column">
-         <div class="ma-3 ">
+      <v-card class="pa-3">
+         <div class="d-flex flex-column">
             <p class="text-h4">{{name}}</p>
             <v-list-item density="compact" class="mt-2">
                <v-list-item class="text-h6 pa-0">混雑状況：</v-list-item>
@@ -11,19 +11,18 @@
                   </v-chip>
                </v-list-item>
             </v-list-item>
+            <v-row>
+               <v-col lg="6" cols="12">
+                  <v-sheet color="grey lighten-3" class="ma-6">
+                     <v-img src="/assets/img/1.png" height="500"/>
+                  </v-sheet>
+               </v-col>
+               <v-col lg="6" cols="12">
+                  <ManagementSituation />
+               </v-col>
+            </v-row>
          </div>
-         <v-row>
-            <v-col lg="6" cols="12">
-               <v-sheet color="grey lighten-3" class="ma-6">
-                  <v-img src="/assets/img/1.png" height="500"/>
-               </v-sheet>
-            </v-col>
-            <v-col lg="6" cols="12">
-               <ManagementSituation />
-            </v-col>
-         </v-row>
-      </div>
-      <v-btn variant="outlined" :to="'/management/'+id+'/data'">outlined</v-btn>
+      </v-card>
    </v-container>
 </template>
 

@@ -63,8 +63,7 @@ export default defineComponent({
       indexAxis: 'y',
       scales: {
          x: {
-            min: 0,
-            max: 50,
+            min: 0
          }
       }
     }

@@ -1,11 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar flat border>
+    <v-app-bar flat border color="primary">
       <v-app-bar-nav-icon @click="drawer=!drawer" />
       <v-app-bar-title class="pl-5">{{title}}</v-app-bar-title>
     </v-app-bar>
     <v-navigation-drawer app v-model="drawer">
-      <v-container>
+      <v-container class="d-flex flex-column h-100">
         <v-list nav dense>
           <v-list-item v-for="(navList,i) in navLists" :key="i" :to="navList.to" active-color="secondary">
             <v-list-item-avatar>
@@ -24,6 +24,15 @@
               <v-list-item title="分析データ"  :to="'/management/'+n.spots_id+'/data'" active-color="secondary"/>
           </v-list-group>
         </v-list>
+        <v-list nav dense class="mt-auto">
+          <v-divider/>
+          <v-list-item to="/setting" active-color="secondary" class="mt-3">
+            <v-list-item-avatar>
+              <v-icon icon="mdi-cogs"/>
+            </v-list-item-avatar>
+            <v-list-item-title>設定</v-list-item-title>
+          </v-list-item>
+        </v-list>
       </v-container>
     </v-navigation-drawer>
     <v-main>
@@ -39,10 +48,7 @@ export default {
       drawer: null,
       navLists:[
         {name: 'ダッシュボード',icon: 'mdi-vuetify', to: '/'},
-        {name: '駐輪場管理',icon: 'mdi-cogs', to: '/management'},
-        {name: 'データ分析',icon: 'mdi-poll', to: '/analyze'},
-        {name: '1111',icon: 'mdi-palette', to: '/next'},
-        {name: '2222',icon: 'mdi-palette', to: '/register'},
+        {name: '駐輪場管理',icon: 'mdi-cogs', to: '/management'}
       ],
     }
   }
@@ -56,3 +62,11 @@ export default {
 
   spots.value = props
 </script>
+
+<style lamg="sass" scoped>
+
+.v-list-item--active{
+  
+}
+
+</style>
