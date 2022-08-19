@@ -12,4 +12,5 @@
   const { data: props } = await useFetch('/api/deal')
   const { title } = useArticleTitle()
   onMounted(() => title.value = '駐輪場管理')
+
 </script>

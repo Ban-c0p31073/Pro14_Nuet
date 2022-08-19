@@ -56,11 +56,13 @@ export default {
 </script>
 
 <script setup lang="ts">
+
   const { title } = useArticleTitle()
   const { spots } = useSpots()
   const { data: props } = await useFetch('/api/deal')
 
   spots.value = props
+  
 </script>
 
 <style lamg="sass" scoped>
