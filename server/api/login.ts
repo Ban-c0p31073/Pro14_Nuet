@@ -14,8 +14,8 @@ export interface User {
   updated_at: string;
 }
 
-export default defineEventHandler(async (e) => {
-  const body = await useBody(e)
+export default defineEventHandler(async (event) => {
+  const body = await useBody(event)
   const result: login[] = await $fetch(url,{
    method: 'POST',
    body: body

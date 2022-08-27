@@ -76,7 +76,7 @@ export default {
         label: 'Data One',
         backgroundColor: '#f87979',
         data: [0,10,20,30,40,50,60,70,80,90],
-        labels: [0,10,20,30,40,50,60,70,80,90]
+        labels: ["","","","6/19","","","7/19","","","8/19"]
       },
       numberChartData: {
         label: '台数分布',

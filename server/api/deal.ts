@@ -1,8 +1,5 @@
-import type { IncomingMessage, ServerResponse } from "http";
-
-let url: string = `http://host.docker.internal:8000/api/edit_spot/1`
-
-export default async (req: IncomingMessage, res: ServerResponse) => {
-  const result: string = await $fetch(url)
+export default defineEventHandler(async (event) => {
+  const userId = useQuery(event)
+  const result: string = await $fetch(`http://host.docker.internal:8000/api/edit_spot/${userId.id}`)
   return result
-}
+})

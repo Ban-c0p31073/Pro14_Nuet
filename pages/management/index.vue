@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col v-for="(v, k) in props" :key="k" lg="6" cols="12">
+      <v-col v-for="(v, k) in spots" :key="k" lg="6" cols="12">
         <ManagementCard :name="v.spots_name" :address="v.spots_address" :situation="v.situation" :to="'/management/'+v.spots_id"/>
       </v-col>
     </v-row>
@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-  const { data: props } = await useFetch('/api/deal')
+  const { spots } = useSpots()
   const { title } = useArticleTitle()
   onMounted(() => title.value = '駐輪場管理')
 

@@ -32,9 +32,9 @@
       async login1(){
         const a = await $fetch( '/api/login', {
             method: 'POST',
-            body: this.user
+            body: this.user,
         } );
-        const { currentUser, login } = useAuth();
+        const { login } = useAuth();
         const userLogin = await login(a)
       }
     }
@@ -42,8 +42,7 @@
 </script>
 
 <script setup lang="ts">
-  const { currentUser, login } = useAuth()
-  const userLogin = async () => {
-    await login(a)
-  }
+  definePageMeta({
+    layout: false,
+  });
 </script>

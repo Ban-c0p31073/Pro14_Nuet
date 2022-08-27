@@ -6,10 +6,6 @@
   </v-container>
 </template>
 
-<script lang="ts">
-
-</script>
-
 <script setup lang="ts">
 
   const { title } = useArticleTitle()
@@ -20,5 +16,9 @@
   const userLogout = async () => {
     await logout()
   }
+
+  const { spots } = useSpots()
+  const { data: props } = await useFetch('/api/deal',{ params: { id: loginUser.value.user.id  } })
+  spots.value = props
 
 </script>
