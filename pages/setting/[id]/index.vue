@@ -1,16 +1,17 @@
 <template>
    <v-container>
+   {{index}}
       <v-card class="pa-3">
          <p class="text-h5 mb-0">カメラ設定</p>
          <v-list nav>
-          <v-list-group v-for="(n,i) in cameras" :key="i">
+          <v-list-group v-for="(n,i) in spots[index].camera" :key="i">
               <template v-slot:activator="{ props }" nav>
-                <v-list-item v-bind="props" :title="n.cameras_name"></v-list-item>
+                <v-list-item v-bind="props" :title="n.name"></v-list-item>
               </template>
               <v-list-item title="ラベル登録"/>
-              <v-list-item title="削除" @click="deleteCamera(n.cameras_id)" />
+              <v-list-item title="削除" @click="deleteCamera(n.id)" />
           </v-list-group>
-          <v-list-item title="新規登録" :to="'/setting/'+ id +'/newCameraForm'" />
+          <v-list-item title="新規登録" :to="'/setting/'+ paramsId +'/newCameraForm'" />
         </v-list>
       </v-card>
       <v-card class="pa-3 mt-6">
@@ -53,11 +54,7 @@
   onMounted( async () => {title.value = '設定 / '+name})
 
   const route = useRoute()
-  const id = route.params.id
-  const index = spots.value.findIndex(({spots_id}) => spots_id == id)
-  const name = spots.value[index].spots_name
-
-  const {data: cameras , refresh} = await useFetch("/api/setting/camera",{ params: { id: id } })
-  refresh()
-
+  const paramsId = route.params.id
+  const index = spots.value.findIndex(({id}) => id == paramsId)
+  const name = spots.value[index].name
 </script>

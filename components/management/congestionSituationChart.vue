@@ -76,8 +76,7 @@ export default defineComponent({
             }
          },
          y: {
-            min: 0,
-            max: 100,
+            min: 0
          }
       }
     }

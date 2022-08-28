@@ -25,7 +25,7 @@ const logout = (state: Ref<loginUser>) => async () => {
 }
 
 export const useAuth = () => {
-  const loginUser = useState('loginUser', () => null)
+  const loginUser = useState<loginUser>('loginUser', () => null)
   return {
     loginUser,
     login: login(loginUser),

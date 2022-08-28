@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col v-for="(v, k) in spots" :key="k" lg="6" cols="12">
-        <ManagementCard :name="v.spots_name" :address="v.spots_address" :situation="v.situation" :to="'/management/'+v.spots_id"/>
+        <ManagementCard :name="v.name" :address="v.address" :count="v.count" :max="v.max" :to="'/management/'+v.id"/>
       </v-col>
     </v-row>
   </v-container>
@@ -12,5 +12,4 @@
   const { spots } = useSpots()
   const { title } = useArticleTitle()
   onMounted(() => title.value = '駐輪場管理')
-
 </script>

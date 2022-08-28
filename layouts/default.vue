@@ -18,10 +18,10 @@
         <v-list nav>
           <v-list-group v-for="(n,i) in spots" :key="i">
               <template v-slot:activator="{ props }" nav>
-                <v-list-item v-bind="props" :title="n.spots_name"></v-list-item>
+                <v-list-item v-bind="props" :title="n.name"></v-list-item>
               </template>
-              <v-list-item title="管理画面"  :to="'/management/'+n.spots_id" active-color="secondary"/>
-              <v-list-item title="分析データ"  :to="'/management/'+n.spots_id+'/data'" active-color="secondary"/>
+              <v-list-item title="管理画面"  :to="'/management/'+n.id" active-color="secondary"/>
+              <v-list-item title="分析データ"  :to="'/management/'+n.id+'/data'" active-color="secondary"/>
           </v-list-group>
         </v-list>
         <v-list nav dense class="mt-auto">

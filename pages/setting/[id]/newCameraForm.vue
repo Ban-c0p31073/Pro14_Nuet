@@ -59,8 +59,8 @@
   onMounted( async () => {title.value = '設定 / '+name})
 
   const route = useRoute()
-  const id = route.params.id
-  const index = spots.value.findIndex(({spots_id}) => spots_id == id)
-  const name = spots.value[index].spots_name
+  const paramsId = route.params.id
+  const index = spots.value.findIndex(({id}) => id == paramsId)
+  const name = spots.value[index].name
 
 </script>

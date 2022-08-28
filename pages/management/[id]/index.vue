@@ -3,22 +3,22 @@
       <v-card class="pa-3">
          <div class="d-flex flex-column">
             <p class="text-h4">{{name}}</p>
-            <v-list-item density="compact" class="mt-2">
-               <v-list-item class="text-h6 pa-0">混雑状況：</v-list-item>
-               <v-list-item class="pa-0">
-                  <v-chip class="my-2 " color="cyan" label>
-                     空車
-                  </v-chip>
-               </v-list-item>
-            </v-list-item>
+            <div class="mt-2 px-3">
+               <div class="text-h6">混雑状況：{{ Math.ceil(per) }}%</div>
+               <v-progress-linear
+                  v-model="per"
+                  height="30"
+                  color="teal"
+               >
+                  <strong>{{ Math.ceil(per) }}%</strong>
+               </v-progress-linear>
+            </div>
             <v-row>
                <v-col lg="6" cols="12">
-                  <v-sheet color="grey lighten-3" class="ma-6">
-                     <v-img src="/assets/img/1.png" height="500"/>
-                  </v-sheet>
+                  <ManagementCamera :camera="spots[index].camera" />
                </v-col>
                <v-col lg="6" cols="12">
-                  <ManagementSituation />
+                  <ManagementSituation :situation="spots[index].situation" />
                </v-col>
             </v-row>
          </div>
@@ -32,7 +32,8 @@
   onMounted(() => title.value = '駐輪場管理 / '+name)
 
   const route = useRoute()
-  const id = route.params.id
-  const index = spots.value.findIndex(({spots_id}) => spots_id == id)
-  const name = spots.value[index].spots_name
+  const paramsId = route.params.id
+  const index = spots.value.findIndex(({id}) => id == paramsId)
+  const name = spots.value[index].name
+  const per = (spots.value[index].count / spots.value[index].max)*100
 </script>
