@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <h1>フロントエンド動作確認です</h1>
-    <h1>{{loginUser.user.name}}のログイン</h1>
-    <button @click="userLogout">ログ負うと</button>
+    <h1>動作確認</h1>
+    <h1>ログイン：{{loginUser.user.name}}</h1>
+    <v-btn @click="userLogout">ログアウト</v-btn>
   </v-container>
 </template>
 

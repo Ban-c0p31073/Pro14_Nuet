@@ -20,6 +20,5 @@ export default defineEventHandler(async (event) => {
    method: 'POST',
    body: body
   })
-  console.log(result)
   return result
 })
